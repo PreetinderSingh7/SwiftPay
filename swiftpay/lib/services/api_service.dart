@@ -111,7 +111,9 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class ApiService {
   // ⚠️ Replace with your actual backend URL
-  static const String baseUrl = 'http://10.198.126.14:5000/api';
+  // static const String baseUrl = 'http://172.17.40.14:5000/api';
+  static const String baseUrl = 'https://swift-pay-phi.vercel.app/api';
+
 
   static const storage = FlutterSecureStorage();
 
