@@ -1,21 +1,6 @@
-const mongoose = require("mongoose");
-const app = require("../server"); // reuse your Express app
-
-// Ensure MongoDB connection only once
-let isConnected = false;
-
-async function connectDB() {
-  if (isConnected) return;
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    isConnected = true;
-    console.log("MongoDB Connected (Vercel)");
-  } catch (err) {
-    console.error("MongoDB Error:", err);
-  }
-}
+const { app, connectDB } = require('../server');
 
 module.exports = async (req, res) => {
-  await connectDB();
+  await connectDB();   // ensure DB is connected
   return app(req, res); // delegate request to Express
 };
